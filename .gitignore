@@ -1,0 +1,4 @@
+#https://www.cnblogs.com/kevingrace/p/5690241.html
+/.idea
+/test/.pytest_*
+__pycache__/
