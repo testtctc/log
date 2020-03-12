@@ -41,16 +41,19 @@ class Alarm():
             dis.append(tree.distance(a1,a2))
         return sum(dis)
 
-    def update(self,attr_index):
+    def update(self,attr_index:int):
         #更新部分元素之后，返回新对象
         parent = self.Trees[attr_index].to_parent(self._attrs[attr_index])
         attrs = [self._attrs[i] if i !=attr_index else parent for i in range(len(self))]
 
         return self.__class__(*attrs)
 
+
     def __eq__(self, other):
         """对比两个元素是否相等"""
         #根据距离也可以直接得出，但计算成本高
+        if not isinstance(other,self.__class__):
+            raise  ValueError("必须是相同告警类型")
         combo = zip(self._attrs, other._attrs)
         for (a1,a2) in combo:
             if a1 != a2:

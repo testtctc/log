@@ -17,7 +17,7 @@ relations_2={"行为":["觅食","攻击"],"觅食":["乞讨","捕猎"],"攻击":
 
 
 class Animal(Alarm):
-    Trees = [AttributeTree("归属",elements_1,relations_1),AttributeTree("行为",elements_2,relations_2)]
+    Trees = [AttributeTree("归属",elements_1,relations_1,"自然界"),AttributeTree("行为",elements_2,relations_2,"行为")]
 
 
 
@@ -25,10 +25,10 @@ class TestAbstraction():
     #测试信息抽取
     def test_abstract_info(self):
         alarm_set = [Animal("爬行类","撕"),Animal("爬行类","撕"),Animal("爬行类","撕"),Animal("爬行类","撕"),Animal("爬行类","撕")]
-        print(abstract_info(alarm_set,mini_size=3))
+        print(abstract_info(alarm_set,mini_size=3))  #nimal("爬行类","撕")
 
     def test_abstract_info2(self):
 
         alarm_set = [Animal("爬行类","咬"),Animal("爬行类","撕"),Animal("爬行类","撕"),Animal("爬行类","撕"),Animal("爬行类","撕")]
         print(abstract_info(alarm_set,mini_size=4))  #.[(Animal(爬行类,撕), 4)]
-        print(abstract_info(alarm_set, mini_size=5))   #[(Animal(爬行类,行为), 5)]
+        print(abstract_info(alarm_set, mini_size=5))   #[(Animal(爬行类,咬), 5)]
